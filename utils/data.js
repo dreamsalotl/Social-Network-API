@@ -1,45 +1,51 @@
-const faker = require('faker');
-
-// Generate random user data
 function generateUserData() {
-  const firstName = faker.name.firstName();
-  const lastName = faker.name.lastName();
-  const username = `${firstName.toLowerCase()}${Math.floor(Math.random() * 100)}`;
-  const email = `${username}@example.com`;
-  const password = faker.internet.password();
+  const users = [
+    {
+      username: 'johndoe',
+      email: 'johndoe@example.com',
+    },
+    {
+      username: 'janesmith',
+      email: 'janesmith@example.com',
+    },
+    // Add more user objects as needed
+  ];
 
-  return {
-    firstName,
-    lastName,
-    username,
-    email,
-    password,
-  };
+  return users;
 }
 
-// Generate random thought data
-function generateThoughtData() {
-  const text = faker.lorem.sentence();
-  const createdAt = faker.date.past();
+// Generate manual thought data
+function generateThoughtData(users) {
+  const thoughts = [
+    {
+      thoughtText: 'This is a sample thought.',
+      createdAt: new Date('2023-01-15'),
+      username: users[0].username,
+      reactions: [
+        {
+          reactionBody: 'This is a reaction to the sample thought.',
+          username: users[1].username,
+        },
+      ],
+    },
+    {
+      thoughtText: 'Another example thought here.',
+      createdAt: new Date('2023-01-20'),
+      username: users[1].username,
+      reactions: [
+        {
+          reactionBody: 'This is a reaction to another example thought.',
+          username: users[0].username,
+        },
+      ],
+    },
+    // Add more thought objects as needed
+  ];
 
-  return {
-    text,
-    createdAt,
-  };
-}
-
-// Generate random reaction data
-function generateReactionData() {
-  const types = ['like', 'love', 'haha', 'wow', 'sad', 'angry'];
-  const type = types[Math.floor(Math.random() * types.length)];
-
-  return {
-    type,
-  };
+  return thoughts;
 }
 
 module.exports = {
   generateUserData,
   generateThoughtData,
-  generateReactionData,
 };
