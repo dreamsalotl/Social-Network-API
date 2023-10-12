@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const { User, Thought } = require('../models');
 const { generateUserData, generateThoughtData } = require('./data');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialnetwork', {
+const connectionString = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialnetwork';
+
+mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
