@@ -39,6 +39,10 @@ npm start
 
 This command will initiate the server, making it available at `http://localhost:3001`. You can use a tool like [Postman](https://www.postman.com/) to make HTTP requests to the API.
 
+
+[Social-Network-API.webm](https://github.com/dreamsalotl/Social-Network-API/assets/130865355/56ca3362-2eef-46c7-b44d-0bfa2a4b3443)
+
+
 ## Routes
 
 The Social Network API provides the following routes:
